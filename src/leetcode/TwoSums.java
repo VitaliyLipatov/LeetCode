@@ -1,12 +1,15 @@
 package leetcode;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class TwoSums {
 
     public static void main(String[] args) {
-        int[] arr = {8, 4, 3, 5, 9, 7};
-        System.out.println(Arrays.toString(twoSum(arr, 13)));
+        int[] arr = {2, 7, 11, 15};
+        System.out.println(Arrays.toString(twoSum(arr, 9)));
+        System.out.println(Arrays.toString(twoSumOptimal(arr, 9)));
     }
 
     private static int[] twoSum(int[] nums, int target) {
@@ -22,5 +25,16 @@ public class TwoSums {
             }
         }
         return res;
+    }
+
+    private static int[] twoSumOptimal(int[] nums, int target) {
+        Map<Integer, Integer> elements = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            if (elements.containsKey(target - nums[i])) {
+                return new int[]{elements.get(target - nums[i]), i};
+            }
+            elements.put(nums[i], i);
+        }
+        return new int[0];
     }
 }
