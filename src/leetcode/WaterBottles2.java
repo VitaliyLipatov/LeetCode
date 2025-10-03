@@ -16,7 +16,7 @@ public class WaterBottles2 {
                 fullBottles++;
                 emptyBottles = emptyBottles - numExchange;
                 numExchange++;
-            } else if (fullBottles > 0) {
+            } else {
                 sum += fullBottles;
                 emptyBottles += fullBottles;
                 fullBottles = 0;
